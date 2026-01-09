@@ -1,0 +1,77 @@
+@model cozynibi.Models.Room
+@{
+	var otherRooms = ViewBag.OtherRooms as List<cozynibi.Models.Room>;
+}
+
+<section class="accommodation-banner">
+	<h1>@Model.Name</h1>
+</section>
+
+<section class="container my-5">
+	<div class="row">
+
+		<!-- LEFT -->
+		<div class="col-lg-8">
+			<img src="~/images/@Model.Image" class="img-fluid mb-3">
+
+			<p>@Model.Description</p>
+
+			<ul class="room-info">
+				<li>Room size: 18m²</li>
+				<li>Bed size: 1.8m</li>
+				<li>Price: @Model.Price.ToString("N0") VND</li>
+			</ul>
+		</div>
+
+		<!-- RIGHT -->
+		<div class="col-lg-4">
+
+			<!-- BOOK FORM -->
+			<div class="book-box mb-4">
+				<h4>BOOK ROOM</h4>
+
+				<form>
+					<input type="date" class="form-control mb-2" required>
+					<input type="date" class="form-control mb-2" required>
+
+					<select class="form-control mb-2">
+						<option>Adults</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+
+					<select class="form-control mb-3">
+						<option>Children</option>
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+					</select>
+
+					<button class="btn btn-warning w-100">BOOK NOW</button>
+				</form>
+			</div>
+
+			<!-- OTHER ROOMS -->
+			<div class="other-rooms">
+				<h5>OTHER ROOMS</h5>
+
+				@foreach (var r in otherRooms)
+				{
+					<a asp-controller="Accommodation"
+					   asp-action="Detail"
+					   asp-route-id="@r.Id"
+					   class="d-flex mb-3 text-decoration-none">
+
+						<img src="~/images/@r.Image" width="80">
+						<div class="ms-3">
+							<strong>@r.Name</strong><br />
+							<small>@r.Price.ToString("N0") VND</small>
+						</div>
+					</a>
+				}
+			</div>
+		</div>
+
+	</div>
+</section>

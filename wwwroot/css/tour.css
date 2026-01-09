@@ -1,0 +1,130 @@
+/* BANNER */
+.tour-banner {
+    height: 380px;
+    background: url('/images/banner-travel.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.tour-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tour-banner h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+/* INTRO */
+.tour-intro {
+    padding: 40px 0;
+    text-align: center;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* SECTION */
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+    .section-title::after {
+        content: "";
+        width: 80px;
+        height: 3px;
+        background: #d6b15a;
+        display: block;
+        margin: 10px auto 0;
+    }
+
+/* GRID */
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* TOUR ITEM */
+.tour-item {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    border: 2px solid #fff;
+}
+
+    .tour-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+
+    .tour-item:hover img {
+        transform: scale(1.05);
+    }
+
+/* OVERLAY */
+.tour-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+    .tour-overlay h3 {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+/* PLUS ICON */
+.tour-plus {
+    margin-top: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #d6b15a;
+    color: #fff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PAGINATION */
+.pagination {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+    .pagination a {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #d6b15a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .pagination a.active,
+        .pagination a:hover {
+            background: #d6b15a;
+            color: #fff;
+        }

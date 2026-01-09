@@ -1,0 +1,119 @@
+﻿/* ===== ABOUT BANNER ===== */
+.about-banner {
+    height: 420px;
+    background: url("/images/intro-1.jpg") center/cover no-repeat;
+    position: relative;
+}
+
+.about-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .about-banner-overlay h1 {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+
+/* ===== WELCOME SECTION ===== */
+.about-welcome {
+    background: #d4b15f;
+    padding: 80px 15px;
+    color: #222;
+    text-align: center;
+}
+
+    .about-welcome h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .about-welcome h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .about-welcome p {
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.8;
+    }
+
+/* ===== IMAGE + TEXT OVERLAY SECTION ===== */
+.about-section {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+}
+
+/* ẢNH NỀN */
+.about-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* LỚP PHỦ ĐEN */
+.about-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 2;
+}
+
+/* TEXT CHÈN LÊN ẢNH */
+.about-text {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    z-index: 3;
+    max-width: 420px;
+    color: #fff;
+}
+
+.about-section.reverse .about-text {
+    left: 60px;
+    right: auto;
+}
+
+.about-text h3 {
+    color: #d4b15f;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    line-height: 1.7;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .about-text {
+        left: 20px;
+        right: 20px;
+        max-width: 100%;
+    }
+}
+
+/* ===== ABOUT DIVIDER IMAGE ===== */
+.about-divider {
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

@@ -1,0 +1,75 @@
+@model List<cozynibi.Models.Room>
+
+<section class="accommodation-banner">
+	<div class="banner-overlay">
+		<h1>ACCOMMODATION</h1>
+	</div>
+</section>
+
+<section class="accommodation-content">
+	<div class="container">
+
+		@{
+			var mainRoom = Model.FirstOrDefault();
+		}
+
+		@if (mainRoom != null)
+		{
+			<div class="room-main">
+				<div class="room-image">
+					<img id="mainRoomImage" src="~/images/@mainRoom.Image" alt="@mainRoom.Name">
+				</div>
+
+				<div class="room-info">
+					<h2 id="mainRoomName">@mainRoom.Name</h2>
+					<p id="mainRoomDesc">@mainRoom.Description</p>
+
+					<a asp-controller="Accommodation"
+					   asp-action="Detail"
+					   asp-route-id="@mainRoom.Id"
+					   class="read-more">
+						READ MORE
+					</a>
+
+
+				</div>
+			</div>
+		}
+
+		<div class="room-list">
+			@foreach (var room in Model)
+			{
+				<div class="room-item"
+					 data-name="@room.Name"
+					 data-image="/images/@room.Image"
+					 data-desc="@room.Description">
+
+					<img src="~/images/@room.Image">
+					<span>@room.Name</span>
+				</div>
+			}
+		</div>
+
+	</div>
+</section>
+
+<script>
+	const items = document.querySelectorAll('.room-item');
+	const readMoreBtn = document.getElementById('readMoreBtn');
+
+	items.forEach(item => {
+		item.addEventListener('click', () => {
+
+			document.getElementById('mainRoomImage').src = item.dataset.image;
+			document.getElementById('mainRoomName').innerText = item.dataset.name;
+			document.getElementById('mainRoomDesc').innerText = item.dataset.desc;
+
+			// 🔥 UPDATE LINK READ MORE
+			readMoreBtn.href = '/Accommodation/Detail/' + item.dataset.id;
+
+			items.forEach(i => i.classList.remove('active'));
+			item.classList.add('active');
+		});
+	});
+</script>
+

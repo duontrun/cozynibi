@@ -1,0 +1,151 @@
+﻿/* ===============================
+   ACCOMMODATION PAGE
+================================ */
+
+.accommodation-banner {
+    height: 380px;
+    background: url("/images/intro-1.jpg") center / cover no-repeat;
+    position: relative;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .banner-overlay h1 {
+        color: #fff;
+        font-size: 48px;
+        letter-spacing: 4px;
+        font-family: 'Playfair Display', serif;
+    }
+
+/* CONTENT */
+.accommodation-content {
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+
+    .accommodation-content .container {
+        max-width: 1200px;
+    }
+
+/* MAIN ROOM */
+.room-main {
+    display: flex;
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    margin-bottom: 30px;
+}
+
+.room-image {
+    width: 60%;
+}
+
+    .room-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.room-info {
+    width: 40%;
+    background: #d4b05c;
+    padding: 50px 40px;
+}
+
+    .room-info h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .room-info p {
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+.read-more {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* ROOM LIST */
+.room-list {
+    display: flex;
+    gap: 20px;
+}
+
+.room-item {
+    background: #fff;
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+    .room-item img {
+        width: 100%;
+        height: 90px;
+        object-fit: cover;
+    }
+
+    .room-item span {
+        display: block;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .room-item small {
+        font-weight: normal;
+        color: #666;
+    }
+
+    .room-item:hover,
+    .room-item.active {
+        border-color: #d4b05c;
+    }
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 991px) {
+    .room-main {
+        flex-direction: column;
+    }
+
+    .room-image,
+    .room-info {
+        width: 100%;
+    }
+
+    .room-list {
+        flex-wrap: wrap;
+    }
+
+    .room-item {
+        width: 48%;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner-overlay h1 {
+        font-size: 32px;
+    }
+
+    .room-item {
+        width: 100%;
+    }
+}

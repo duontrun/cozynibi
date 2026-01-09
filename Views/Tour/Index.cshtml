@@ -1,0 +1,82 @@
+@{
+	ViewData["Title"] = "Tour Travel";
+}
+
+<!-- BANNER -->
+<section class="tour-banner">
+	<div class="tour-banner-overlay">
+		<h1>TOUR TRAVEL</h1>
+	</div>
+</section>
+
+<!-- INTRO -->
+<section class="tour-intro container">
+	<p>
+		Discover the most beautiful destinations in Ninh Binh with our
+		carefully designed tour packages.
+	</p>
+</section>
+
+<!-- TOUR LIST -->
+<section class="container">
+	<h2 class="section-title">OUR TOURS</h2>
+
+	<div class="tour-grid">
+
+		<!-- ITEM 1 -->
+		<a asp-controller="Tour" asp-action="Detail" asp-route-id="1" class="tour-item">
+			<img src="@Url.Content("~/images/our-tour.jpg")" />
+			<div class="tour-overlay">
+				<h3>
+					BAI DINH PAGODA – HOA LU ANCIENT CAPITAL<br />
+					MUA CAVE – THAI VI TEMPLE
+				</h3>
+				<div class="tour-plus">+</div>
+			</div>
+		</a>
+
+		<!-- ITEM 2 -->
+		<a asp-controller="Tour" asp-action="Detail" asp-route-id="2" class="tour-item">
+			<img src="@Url.Content("~/images/travel-6.jpg")" />
+			<div class="tour-overlay">
+				<h3>
+					CUC PHUONG NATIONAL PARK<br />
+					VAN LONG NATURE RESERVE
+				</h3>
+				<div class="tour-plus">+</div>
+			</div>
+		</a>
+
+		<!-- ITEM 3 -->
+		<a asp-controller="Tour" asp-action="Detail" asp-route-id="3" class="tour-item">
+			<img src="@Url.Content("~/images/travel-2.jpg")" />
+			<div class="tour-overlay">
+				<h3>
+					TAM COC – BICH DONG<br />
+					MUA CAVE
+				</h3>
+				<div class="tour-plus">+</div>
+			</div>
+		</a>
+
+		<!-- ITEM 4 -->
+		<a asp-controller="Tour" asp-action="Detail" asp-route-id="4" class="tour-item">
+			<img src="@Url.Content("~/images/travel-3.jpg")" />
+			<div class="tour-overlay">
+				<h3>
+					TRANG AN ECO TOURISM<br />
+					BAI DINH PAGODA
+				</h3>
+				<div class="tour-plus">+</div>
+			</div>
+		</a>
+
+	</div>
+</section>
+
+<!-- PAGINATION -->
+<div class="pagination">
+	<a href="#" class="active">1</a>
+	<a href="#">2</a>
+	<a href="#">3</a>
+</div>
