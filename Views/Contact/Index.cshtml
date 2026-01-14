@@ -1,5 +1,79 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
+	ViewData["Title"] = "Contact";
 }
+
+<!-- BANNER -->
+<section class="contact-banner">
+	<div class="contact-banner-overlay">
+		<h1>CONTACT US</h1>
+	</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section container">
+	<div class="row g-5">
+
+		<!-- LEFT -->
+		<div class="col-md-5 contact-info">
+			<h2>CozyNibi</h2>
+			<p class="subtitle">
+				We would love to hear from you. Reach us via the information below.
+			</p>
+
+			<div class="contact-item">
+				<i class="fa fa-map-marker-alt"></i>
+				<div>
+					<h5>Address</h5>
+					<span>Kiều Phú, Việt Nam</span>
+				</div>
+			</div>
+
+			<div class="contact-item">
+				<i class="fa fa-phone"></i>
+				<div>
+					<h5>Phone</h5>
+					<span>+84 399 516 205</span>
+				</div>
+			</div>
+
+			<div class="contact-item">
+				<i class="fa fa-envelope"></i>
+				<div>
+					<h5>Email</h5>
+					<span>duontrun@gmail.com</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- RIGHT -->
+		<div class="col-md-7">
+			<div class="contact-form-box">
+				<h3>Send us a message</h3>
+
+				<form>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<input type="text" class="form-control" placeholder="Your Name">
+						</div>
+						<div class="col-md-6 mb-3">
+							<input type="email" class="form-control" placeholder="Your Email">
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<input type="text" class="form-control" placeholder="Subject">
+					</div>
+
+					<div class="mb-3">
+						<textarea class="form-control" rows="5" placeholder="Message"></textarea>
+					</div>
+
+					<button type="submit" class="btn btn-send">
+						SEND MESSAGE
+					</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>
