@@ -1,136 +1,152 @@
 @model List<cozynibi.Models.Room>
 
 @{
-    ViewData["Title"] = "Home";
+	ViewData["Title"] = "Home";
 }
 
 <!-- BANNER -->
 <section class="banner">
-    <img src="~/images/background1.jpg" class="img-fluid w-100" alt="Hotel Room">
+	<img src="~/images/background1.jpg" class="img-fluid w-100" alt="Hotel Room">
 </section>
 
 <!-- INTRO -->
 <section class="welcome py-5" style="background:#d4b15f;">
-    <div class="container">
-        <div class="row align-items-center">
+	<div class="container">
+		<div class="row align-items-center">
 
-            <div class="col-md-4 text-white">
-                <h3>Welcome to <br><b>COZYNIBI HOTEL</b></h3>
-                <p>
-                    CozyNibi Hotel mang đến không gian nghỉ dưỡng sang trọng,
-                    tiện nghi và ấm cúng.
-                </p>
-                <a href="/Accommodation" class="btn btn-dark">READ MORE</a>
-            </div>
+			<div class="col-md-4 text-white">
+				<h3>Welcome to <br><b>COZYNIBI HOTEL</b></h3>
+				<p>
+					CozyNibi Hotel mang đến không gian nghỉ dưỡng sang trọng,
+					tiện nghi và ấm cúng.
+				</p>
+				<a href="/Accommodation" class="btn btn-dark">READ MORE</a>
+			</div>
 
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="/images/room1.jpg" class="img-fluid">
-                        <h6 class="text-center mt-2">DOUBLE ROOM</h6>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="/images/room2.jpg" class="img-fluid">
-                        <h6 class="text-center mt-2">TRIPLE ROOM</h6>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="/images/room3.jpg" class="img-fluid">
-                        <h6 class="text-center mt-2">DORM ROOM</h6>
-                    </div>
-                </div>
-            </div>
+			<div class="col-md-8">
+				<div class="row">
+					@foreach (var room in Model)
+					{
+						<div class="col-md-4">
+							<img src="~/images/@room.Image" class="img-fluid" />
+							<h6 class="text-center mt-2">@room.Name</h6>
+							<p class="text-center text-muted">
+								@room.Price VNĐ
+							</p>
+						</div>
+					}
+				</div>
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </section>
 
+<!-- TOURS -->
 <section class="tours py-5 text-white" style="background:url('/images/tour-bg.jpg') center/cover;">
-    <div class="container">
-        <h3 class="text-center mb-4">TOURS TRAVEL</h3>
+	<div class="container">
+		<h3 class="text-center mb-4">TOURS TRAVEL</h3>
 
-        <div class="row">
-            @for (int i = 0; i < 6; i++)
-            {
-                    <div class="col-md-4 mb-3">
-                        <div class="card bg-dark text-white">
-                            <img src="/images/room1.jpg" class="card-img">
-                            <div class="card-img-overlay">
-                                <h6>Bich Dong Pagoda</h6>
-                                <small>Mua Cave - Phat Diem</small>
-                            </div>
-                        </div>
-                    </div>
-            }
-        </div>
-    </div>
+		@{
+			var tours = new[]
+			{
+		new { Name="Bich Dong Pagoda", Location="Ninh Binh", Image="/images/room1.jpg" },
+		new { Name="Mua Cave", Location="Ninh Binh", Image="/images/room2.jpg" },
+		new { Name="Phat Diem", Location="Ninh Binh", Image="/images/room3.jpg" }
+		};
+		}
+
+		<div class="row">
+			@foreach (var tour in tours)
+			{
+				<div class="col-md-4 mb-3">
+					<div class="card bg-dark text-white">
+						<img src="@tour.Image" class="card-img">
+						<div class="card-img-overlay">
+							<h6>@tour.Name</h6>
+							<small>@tour.Location</small>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
 </section>
 
+<!-- SERVICES -->
 <section class="services py-5">
-    <div class="container">
-        <div class="row">
+	<div class="container">
+		<div class="row">
 
-            <div class="col-md-6">
-                <h4>FOOD RESTAURANT</h4>
-                <img src="/images/room2.jpg" class="img-fluid rounded">
-                <p class="mt-2">Lasagne al Forno</p>
-            </div>
+			<div class="col-md-6">
+				<h4>FOOD RESTAURANT</h4>
+				<img src="/images/room2.jpg" class="img-fluid rounded">
+				<p class="mt-2">Lasagne al Forno</p>
+			</div>
 
-            <div class="col-md-6">
-                <h4>SERVICES</h4>
-                <div class="row text-center">
-                    <div class="col-6 border p-3">Massage & Sauna</div>
-                    <div class="col-6 border p-3">Charles Bar</div>
-                    <div class="col-6 border p-3">Wedding</div>
-                    <div class="col-6 border p-3">Meetings & Events</div>
-                </div>
-            </div>
+			<div class="col-md-6">
+				<h4>SERVICES</h4>
+				<div class="row text-center">
+					<div class="col-6 border p-3">Massage & Sauna</div>
+					<div class="col-6 border p-3">Charles Bar</div>
+					<div class="col-6 border p-3">Wedding</div>
+					<div class="col-6 border p-3">Meetings & Events</div>
+				</div>
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </section>
 
+<!-- NEWS -->
+<section class="news py-5 text-white" style="background:#333;">
+	<div class="container">
+		<h3 class="text-center mb-4">NEWS HIGHLIGHTS</h3>
 
- <section class="news py-5 text-white" style="background:#333;">
-    <div class="container">
-        <h3 class="text-center mb-4">NEWS HIGHLIGHTS</h3>
+		@{
+			var news = new[]
+			{
+		new { Title="World Tourism Day 2019", Image="/images/room2.jpg" },
+		new { Title="Vietnam featured in Louis Vuitton", Image="/images/room1.jpg" },
+		new { Title="Foodwise: Bun cha Hanoi", Image="/images/room3.jpg" }
+		};
+		}
 
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="/images/room2.jpg" class="rounded-circle mb-2" width="150">
-                <p>World Tourism Day 2019</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="/images/room1.jpg" class="rounded-circle mb-2" width="150">
-                <p>Vietnam featured in Louis Vuitton</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="/images/room3.jpg" class="rounded-circle mb-2" width="150">
-                <p>Foodwise: Bun cha Hanoi</p>
-            </div>
-        </div>
-    </div>
+		<div class="row">
+			@foreach (var item in news)
+			{
+				<div class="col-md-4 text-center">
+					<img src="@item.Image" class="rounded-circle mb-2" width="150">
+					<p>@item.Title</p>
+				</div>
+			}
+		</div>
+	</div>
 </section>
 
+<!-- TESTIMONIAL -->
 <section class="testimonial py-5">
-    <div class="container">
-        <h3 class="text-center mb-4">WHAT OTHER SAY?</h3>
+	<div class="container">
+		<h3 class="text-center mb-4">WHAT OTHER SAY?</h3>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p>“I was looking for a nice hotel...”</p>
-                    <b>John Abraham</b> <small>from Germany</small>
-                </div>
-            </div>
+		@{
+			var testimonials = new[]
+			{
+		new { Content="I was looking for a nice hotel...", Name="John Abraham", Country="Germany"},
+		new { Content="CozyNibi Hotel was amazing...", Name="John Abraham", Country="Germany"}
+		};
+		}
 
-            <div class="col-md-6">
-                <div class="border p-4">
-                    <p>“CozyNibi Hotel was amazing...”</p>
-                    <b>John Abraham</b> <small>from Germany</small>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="row">
+			@foreach (var t in testimonials)
+			{
+				<div class="col-md-6">
+					<div class="border p-4">
+						<p>“@t.Content”</p>
+						<b>@t.Name</b> <small>from @t.Country</small>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
 </section>
-
-

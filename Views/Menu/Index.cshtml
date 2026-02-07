@@ -1,3 +1,5 @@
+@model List<cozynibi.Models.Menu>
+
 <!-- MENU BANNER -->
 <section class="menu-banner">
 	<div class="menu-banner-overlay">
@@ -9,46 +11,37 @@
 <section class="menu-section container">
 	<div class="menu-grid">
 
-		<!-- ITEM -->
-		<div class="menu-item">
-			<img src="~/images/room1.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
-		<div class="menu-item">
-			<img src="~/images/room2.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
-		<div class="menu-item">
-			<img src="~/images/room3.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
-		<div class="menu-item">
-			<img src="~/images/room2.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
-		<div class="menu-item">
-			<img src="~/images/room2.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
-		<div class="menu-item">
-			<img src="~/images/room1.jpg" alt="">
-			<div class="menu-title">Lasagne al Forno</div>
-		</div>
-
+		@foreach (var item in Model)
+		{
+			<div class="menu-item">
+				<img src="~/images/@item.Image" alt="@item.Name">
+				<div class="menu-title">@item.Name</div>
+				<div class="menu-price">@item.Price VNĐ</div>
+			</div>
+		}
 	</div>
 
 	<!-- PAGINATION -->
 	<div class="pagination">
-		<a href="#" class="active">1</a>
-		<a href="#">2</a>
-		<a href="#">2</a>
-		<a href="#">3</a>
-		<a href="#">›</a>
-		<a href="#">»</a>
+		@if (ViewBag.CurrentPage > 1)
+		{
+			<a asp-action="Index"
+			   asp-route-page="@(ViewBag.CurrentPage - 1)">‹</a>
+		}
+
+		@for (int i = 1; i <= ViewBag.TotalPages; i++)
+		{
+			<a asp-action="Index"
+			   asp-route-page="@i"
+			   class="@(ViewBag.CurrentPage == i ? "active" : "")">
+				@i
+			</a>
+		}
+
+		@if (ViewBag.CurrentPage < ViewBag.TotalPages)
+		{
+			<a asp-action="Index"
+			   asp-route-page="@(ViewBag.CurrentPage + 1)">›</a>
+		}
 	</div>
 </section>

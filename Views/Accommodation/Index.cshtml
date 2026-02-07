@@ -50,7 +50,34 @@
 			}
 		</div>
 
+		<div class="pagination">
+			@if (ViewBag.CurrentPage > 1)
+			{
+				<a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)">
+					←
+				</a>
+			}
+
+			@for (int i = 1; i <= ViewBag.TotalPages; i++)
+			{
+				<a asp-action="Index"
+				   asp-route-page="@i"
+				   class="@(i == ViewBag.CurrentPage ? "active" : "")">
+					@i
+				</a>
+			}
+
+			@if (ViewBag.CurrentPage < ViewBag.TotalPages)
+			{
+				<a asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)">
+					→
+				</a>
+			}
+		</div>
+
+
 	</div>
+
 </section>
 
 <script>
@@ -71,5 +98,6 @@
 			item.classList.add('active');
 		});
 	});
+
 </script>
 

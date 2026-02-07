@@ -15,11 +15,24 @@ namespace cozynibi.Controllers
         }
 
         // DANH SÁCH PHÒNG
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var rooms = _context.Rooms.ToList();
+            int pageSize = 4; // số phòng mỗi trang
+
+            var totalRooms = _context.Rooms.Count();
+
+            var rooms = _context.Rooms
+                .OrderBy(r => r.Id)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling((double)totalRooms / pageSize);
+
             return View(rooms);
         }
+
 
         // CHI TIẾT PHÒNG
         public IActionResult Detail(int id)

@@ -10,5 +10,8 @@ namespace cozynibi.Data
             : base(options) { }
 
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<About> Abouts { get; set; }
+
     }
 }

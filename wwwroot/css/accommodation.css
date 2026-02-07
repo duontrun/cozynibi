@@ -1,4 +1,4 @@
-﻿/* ===============================
+/* ===============================
    ACCOMMODATION PAGE
 ================================ */
 
@@ -148,4 +148,10 @@
     .room-item {
         width: 100%;
     }
+}
+/* PREV / NEXT */
+.pagination a:first-child,
+.pagination a:last-child {
+    min-width: auto;
+    padding: 0 18px;
 }
